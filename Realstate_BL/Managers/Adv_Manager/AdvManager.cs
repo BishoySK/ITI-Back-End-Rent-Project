@@ -14,10 +14,12 @@ namespace Realstate_BL
             _AdvRepo=advertisementsRepo;
             _mapper = mapper;
         }
-        public void AddAdvertisement(AdvWriteDTO ad)
+        public void AddAdvertisement(AdvWriteDTO ad,UserClass user)
         {
            var dbAd= _mapper.Map<Advertisement>(ad);
-         //   _AdvRepo.Add(dbAd);
+            dbAd.Id = Guid.NewGuid();
+            dbAd.user_Id = user.Id;
+            _AdvRepo.Add(dbAd);
             _AdvRepo.SaveChanges();
                 
         }

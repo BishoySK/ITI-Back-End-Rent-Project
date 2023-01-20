@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Realstate_BL;
 
@@ -11,9 +12,12 @@ namespace Project_realestate.Controllers
     public class AdvertisementController : ControllerBase
     {
         private readonly IAdvManager _advManager;
-        public AdvertisementController(IAdvManager advManager)
+        private readonly UserManager<UserClass> _userManager;
+
+        public AdvertisementController(IAdvManager advManager, UserManager<UserClass> userManager)
         {
             _advManager = advManager;
+            _userManager = userManager;
         }
         //-------------------get all ads-------------------------------------------//
         [HttpGet]
@@ -34,9 +38,10 @@ namespace Project_realestate.Controllers
         //------------------------------adding adv-------------------------------//
 
         [HttpPost]
-        public ActionResult AddAdvirtisement(AdvWriteDTO adv)
+        public async Task<ActionResult> AddAdvirtisement(AdvWriteDTO adv)
         {
-            _advManager.AddAdvertisement(adv);
+            var user = await _userManager.GetUserAsync(User);
+            _advManager.AddAdvertisement(adv,user);
 
             return Ok();
         }

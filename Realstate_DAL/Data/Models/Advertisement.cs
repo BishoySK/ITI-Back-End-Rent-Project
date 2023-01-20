@@ -23,10 +23,5 @@ namespace Realstate_DAL;
         public DateTime? AdvDate { get; set; }
         public UserClass? UserClass { get; set; }
         public Company? company { get; set; }  
-
-
-
-
-
     }
 
