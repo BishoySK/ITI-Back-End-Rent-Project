@@ -19,6 +19,7 @@ namespace Realstate_BL
            var dbAd= _mapper.Map<Advertisement>(ad);
             dbAd.Id = Guid.NewGuid();
             dbAd.user_Id = user.Id;
+            dbAd.AdvDate = DateTime.Now;
             _AdvRepo.Add(dbAd);
             _AdvRepo.SaveChanges();
                 
