@@ -24,6 +24,7 @@ namespace Realstate_BL
                 
         }
 
+
         public void DeleteAdvertisement(AdvWriteDTO ad)
         {
             var dbAdv= _mapper.Map<Advertisement>(ad);

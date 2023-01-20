@@ -6,7 +6,7 @@ namespace Realstate_BL
     {
         List<AdvReadDTO> GetAllAds();  
         AdvReadDTO? GetAdvById(Guid id);
-        void AddAdvertisement(AdvWriteDTO ad);
+        void AddAdvertisement(AdvWriteDTO ad,UserClass user);
         void DeleteAdvertisement(AdvWriteDTO ad);
         void UpdateAdvertisement(AdvWriteDTO ad);
         List<AdvReadDTO>? GetAdsByUserId(Guid userId);
