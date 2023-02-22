@@ -4,7 +4,7 @@
 
 ## Technology, Tools.
 
-### C#,MS SQL Server, ASP.NET Core web API, Mapper, Identity,
+### C#,MS SQL Server, ASP.NET Core web API, Mapper, Identity, JWT For Authntication and Authorization
 
 ## Architecture
 ### 3-Aier Architecture
